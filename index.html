@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAUD x Secret Sauce Partners | The Fit Platform</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-main: #0b0f17;
+            --bg-card: #111827;
+            --bg-card-alt: #1a2332;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #10b981;
+            --accent-green-glow: rgba(16, 185, 129, 0.15);
+            --border-color: #1e293b;
+            --staud-black: #000000;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top Header Navigation */
+        nav {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            background: rgba(11, 15, 23, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .confidential-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 32px auto;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Platform Architecture Overview */
+        .platform-summary {
+            padding: 60px 0;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-green);
+        }
+
+        .product-num {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .product-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Data Scale Banner */
+        .data-network {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(17, 24, 39, 0.6) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stat-box h4 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .stat-box p {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+
+        /* Product Deep Dives */
+        .deep-dive {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .challenge-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .cs-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .cs-box.solution {
+            border-color: var(--accent-green);
+            background: var(--bg-card-alt);
+        }
+
+        .cs-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .cs-tag.challenge-tag {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .cs-tag.solution-tag {
+            background: var(--accent-green-glow);
+            color: var(--accent-green);
+        }
+
+        .cs-box h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .cs-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .data-callout {
+            background: #090d16;
+            border-left: 3px solid var(--accent-green);
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Proof Points / Case Studies */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .proof-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .proof-stat {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        .proof-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* Client Logos */
+        .logos-section {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logo-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .logo-chip {
+            background: #1e293b;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Integration Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .step-num {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer & CTA */
+        .cta-section {
+            background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent-green);
+            color: #000000;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: opacity 0.2s;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .challenge-solution-grid, .proof-grid, .roadmap-grid, .data-network {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container nav-content">
+            <div class="brand-badge">Secret Sauce Partners &times; STAUD</div>
+            <div class="confidential-tag">Confidential proposal</div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Header -->
+        <header class="hero">
+            <div class="hero-subtitle">PREPARED FOR STAUD</div>
+            <h1>Five products, one shopper, one integration.</h1>
+            <p>Five critical moments on the STAUD product page where fit decides the sale — and how Secret Sauce Partners solves each one.</p>
+            <div class="hero-meta">
+                <span><i class="fa-solid fa-user"></i> Todd Perzel</span>
+                <span><i class="fa-solid fa-calendar"></i> September 2026</span>
+            </div>
+        </header>
+
+        <!-- Platform Architecture Overview -->
+        <section class="platform-summary">
+            <div class="section-label">01 // THE FIT PLATFORM ARCHITECTURE</div>
+            <h2 class="section-title">One cohesive suite running on STAUD's existing data</h2>
+            
+            <div class="grid-5">
+                <div class="product-card">
+                    <div class="product-num">01 / FIT PREDICTOR</div>
+                    <h3>Fit Predictor</h3>
+                    <p>Her exact recommended size in this style, before she asks. Increases conversion and lowers returns.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-num">02 / SIZE RECOVERY</div>
+                    <h3>Size Recovery</h3>
+                    <p>When her size is out of stock, instantly presents similar styles available in her size.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-num">03 / DYNAMIC SIZE GUIDES</div>
+                    <h3>Dynamic Size Guides</h3>
+                    <p>A size guide customized for the exact style on the page, adjusted for how it fits.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-num">04 / VIRTUAL TRY-ON</div>
+                    <h3>Virtual Try-On</h3>
+                    <p>Renders the garment on a body like hers using photography STAUD already publishes.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-num">05 / DRAPE</div>
+                    <h3>Drape</h3>
+                    <p>Generates realistic fabric motion from stills without style-by-style video production.</p>
+                </div>
+            </div>
+
+            <!-- Global Data Power -->
+            <div class="data-network">
+                <div class="stat-box">
+                    <h4>4 Billion+</h4>
+                    <p>Transactions Analyzed</p>
+                </div>
+                <div class="stat-box">
+                    <h4>100,000+</h4>
+                    <p>Brands & Designers</p>
+                </div>
+                <div class="stat-box">
+                    <h4>100 Million+</h4>
+                    <p>Monthly Active Users</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 1: Fit Predictor -->
+        <section class="deep-dive">
+            <div class="section-label">01 // FIT PREDICTOR</div>
+            <h2 class="section-title">Her size for this style, before she asks</h2>
+            
+            <div class="challenge-solution-grid">
+                <div class="cs-box">
+                    <span class="cs-tag challenge-tag">STAUD Catalog Challenge</span>
+                    <h4>A "Medium" is a concept, not a measurement</h4>
+                    <p>STAUD publishes 1 body chart across 540 products. It states a Medium is 36.5–38" bust. However, the product table for the <em>Evie Top</em> measures a Medium at 30.5", while the <em>Sorrento Sweater</em> measures at 55.5".</p>
+                    <div class="data-callout">
+                        <strong>Research Insight:</strong> In a study of 450 female online shoppers, 64.7% did not know their bust measurement, and 79.8% did not know their hip measurement.
+                    </div>
+                </div>
+
+                <div class="cs-box solution">
+                    <span class="cs-tag solution-tag">The Solution</span>
+                    <h4>One common scale for every size & style</h4>
+                    <p>Fit Predictor places every size of every style on a unified scale built from real purchase and return behaviors. It matches the shopper to the item instantly without requiring body tape measurements.</p>
+                    <div class="data-callout">
+                        <strong>Shopper Tailored:</strong> Returning shoppers get instant recommendations (0 clicks). Mobile/Hurried shoppers get a 1-click prompt.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 2: Size Recovery -->
+        <section class="deep-dive">
+            <div class="section-label">02 // SIZE RECOVERY</div>
+            <h2 class="section-title">Recovering demand when her size is unavailable</h2>
+            
+            <div class="challenge-solution-grid">
+                <div class="cs-box">
+                    <span class="cs-tag challenge-tag">STAUD Catalog Challenge</span>
+                    <h4>The dress is in stock, but her size is gone</h4>
+                    <p>When a shopper's suggested size is sold out on a product page, the item is effectively out of stock for her, offering no direct path to in-stock alternatives.</p>
+                    <div class="data-callout">
+                        <strong>STAUD Audit Finding:</strong> 218 out of 585 women's clothing items reviewed on staud.clothing had at least one size unavailable (>37% of catalog).
+                    </div>
+                </div>
+
+                <div class="cs-box solution">
+                    <span class="cs-tag solution-tag">The Solution</span>
+                    <h4>1 Click to 5 styles available in her size</h4>
+                    <p>When her size is unavailable, Size Recovery dynamically embeds a <em>"View Similar Styles"</em> trigger that presents 5 curated alternatives immediately available in her exact size.</p>
+                    <div class="data-callout">
+                        <strong>Zero Friction:</strong> The shopper never has to restart her fit discovery or re-filter catalog lists.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 3: Dynamic Size Guides -->
+        <section class="deep-dive">
+            <div class="section-label">03 // DYNAMIC SIZE GUIDES</div>
+            <h2 class="section-title">Eliminating the ease gap between body and garment</h2>
+
+            <div class="challenge-solution-grid">
+                <div class="cs-box">
+                    <span class="cs-tag challenge-tag">STAUD Catalog Challenge</span>
+                    <h4>5 confusing tables in 1 pop-up</h4>
+                    <p>Opening the standard STAUD size guide presents body charts, international conversions, shoes, and swimwear guidance simultaneously—making a simple sizing question difficult to answer.</p>
+                </div>
+
+                <div class="cs-box solution">
+                    <span class="cs-tag solution-tag">The Solution</span>
+                    <h4>Product-specific dynamic charts</h4>
+                    <p>Dynamic Size Guides merge body measurements with intended garment ease for that specific item. If the <em>Kent Tank</em> runs large, its body measurements adjust dynamically while highlighting her recommended column.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 4 & 5: Visual Experience (Try-On & Drape) -->
+        <section class="deep-dive">
+            <div class="section-label">04 & 05 // VISUAL RELEVANCE & MOTION</div>
+            <h2 class="section-title">Virtual Try-On and Catalog Drape</h2>
+
+            <div class="challenge-solution-grid">
+                <div class="cs-box">
+                    <span class="cs-tag solution-tag">Virtual Try-On</span>
+                    <h4>The garment on a body like hers</h4>
+                    <p>Renders STAUD garments across representative body shapes using imagery STAUD already publishes. No customer photo uploads or expensive multi-model studio shoots required.</p>
+                </div>
+
+                <div class="cs-box solution">
+                    <span class="cs-tag solution-tag">Drape Motion</span>
+                    <h4>Making the whole catalog move</h4>
+                    <p>122 STAUD product descriptions mention fabric movement (e.g., <em>"cascading side drape"</em>). Drape generates video motion directly from existing still photos without seasonal video shoot costs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Proof Section -->
+        <section class="deep-dive">
+            <div class="section-label">06 // PROVEN MARKET RESULTS</div>
+            <h2 class="section-title">Measurable enterprise impact</h2>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <h3>CARIUMA</h3>
+                    <div class="proof-stat">-28%</div>
+                    <div class="proof-label">Lower Returns</div>
+                    <div style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">+6% AOV</div>
+                </div>
+                <div class="proof-card">
+                    <h3>Acne Studios</h3>
+                    <div class="proof-stat">-9%</div>
+                    <div class="proof-label">Lower Returns</div>
+                    <div style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">+33% AOV</div>
+                </div>
+                <div class="proof-card">
+                    <h3>KEEN</h3>
+                    <div class="proof-stat">50%+</div>
+                    <div class="proof-label">Fewer Fit & Size Support Calls</div>
+                </div>
+            </div>
+
+            <!-- Logo Wall -->
+            <div class="logos-section">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">TRUSTED BY LEADING GLOBAL BRANDS</div>
+                <div class="logo-chips">
+                    <span class="logo-chip">Cult Gaia</span>
+                    <span class="logo-chip">Aritzia</span>
+                    <span class="logo-chip">Revolve</span>
+                    <span class="logo-chip">Ann Taylor</span>
+                    <span class="logo-chip">L'Agence</span>
+                    <span class="logo-chip">Birkenstock</span>
+                    <span class="logo-chip">Walmart</span>
+                    <span class="logo-chip">Simon</span>
+                    <span class="logo-chip">Cariuma</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Roadmap -->
+        <section class="deep-dive">
+            <div class="section-label">07 // FAST INTEGRATION</div>
+            <h2 class="section-title">Two feeds, one script tag, live in 2 months</h2>
+
+            <div class="roadmap-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h4 style="color: var(--accent-green); margin-bottom: 8px;">Select Products</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">STAUD confirms which of the five fit modules to deploy across web and native mobile apps.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h4 style="color: var(--accent-green); margin-bottom: 8px;">Sign Agreement</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Commercial terms and service level agreements are finalized prior to technical kickoff.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h4 style="color: var(--accent-green); margin-bottom: 8px;">Provide Feeds & Go Live</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Provide product export and recurring transaction feeds. SSP handles full technical implementation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="font-size: 2rem; margin-bottom: 12px;">Ready to transform the STAUD fit experience?</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Select the products you wish to deploy, and we will provide the commercial agreement and technical implementation timeline.</p>
+            <a href="mailto:todd@secretsaucepartners.com?subject=STAUD%20Fit%20Platform%20Next%20Steps" class="cta-btn">Initiate STAUD Deployment</a>
+            
+            <div style="margin-top: 32px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">
+                Todd Perzel &bull; Secret Sauce Partners &bull; todd@secretsaucepartners.com
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
